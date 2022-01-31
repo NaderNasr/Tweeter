@@ -5,7 +5,47 @@
  */
 html {
   box-sizing: border-box;
+  font-family: 'Source Sans Pro';
 }
+
+#logoFont {
+  font-family: 'Bungee';
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 120px;
+  background-color: #3E54A2;
+  padding: 1.5em;
+}
+
+nav span {
+  color: white;
+}
+
+nav p {
+  color: white;
+  display: inline-flex;
+}
+
+.fafaIcon {
+  color: red;
+  display: inline-block;
+  margin-left: 75px;
+  margin-right: 75px;
+}
+
+.navRight {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+
+}
+
+
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
