@@ -23,6 +23,7 @@ nav {
 
 nav span {
   color: white;
+  font-size: 32px;
 }
 
 nav p {
@@ -33,15 +34,15 @@ nav p {
 .fafaIcon {
   color: red;
   display: inline-block;
-  margin-left: 75px;
-  margin-right: 75px;
+  margin: -15px 75px;
+  padding-bottom: 12px;
 }
 
 .navRight {
   display: flex;
   flex-direction: column;
   padding: 20px 0px;
-
+  margin-right: 1.5em;
 }
 
 
