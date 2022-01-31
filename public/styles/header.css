@@ -1,0 +1,18 @@
+header {
+  z-index: -1;
+  height: 400px;
+  width: 100%;
+  background-color: rgba(83, 182, 83, 0.5);
+  background-image: '../images/clean-gray-paper.png';
+  background-repeat: repeat;
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-name {
+  display: flex;
+  justify-content: center;
+}
