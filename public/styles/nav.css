@@ -9,6 +9,7 @@ nav {
   height: 120px;
   background-color: #3E54A2;
   padding: 1.5em;
+  z-index: 1;
 }
 
 nav span {
