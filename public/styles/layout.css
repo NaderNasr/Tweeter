@@ -8,45 +8,6 @@ html {
   font-family: 'Source Sans Pro';
 }
 
-#logo-font {
-  font-family: 'Bungee';
-}
-
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 120px;
-  background-color: #3E54A2;
-  padding: 1.5em;
-}
-
-nav span {
-  color: white;
-  font-size: 32px;
-}
-
-nav p {
-  color: white;
-  display: inline-flex;
-}
-
-.icon-position {
-  color: red;
-  display: inline-block;
-  margin: -15px 75px;
-  padding-bottom: 12px;
-}
-
-.nav-right {
-  display: flex;
-  flex-direction: column;
-  padding: 20px 0px;
-  margin-right: 1.5em;
-}
-
-
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
