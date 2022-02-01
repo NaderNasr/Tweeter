@@ -11,6 +11,8 @@ nav {
   background-color: #3E54A2;
   padding: 1.5em;
   z-index: 1;
+  position: fixed;
+  width: 100%;
 }
 
 nav span {
