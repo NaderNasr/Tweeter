@@ -9,12 +9,17 @@ $(document).ready(function() {
     const tweetTextCount = $(this).val().length;
     textCounter.innerHTML = 140 - tweetTextCount;
 
-    if (textCounter.innerHTML <= 135) {
-      $("#charOverLimit").show(); //comment here
-      $("output").css({'color': 'red'}); //
+    if (textCounter.innerHTML < 0) {
+      $("#charOverLimit").show();
+      $("output").css({'color': 'red'});
+      $("#button").attr("disabled", true);
+      $("#button").css({'cursor': 'not-allowed', 'color': 'red', 'background': 'white'});
+      
     } else {
       $("output").css({'color': 'black'});
       $("#charOverLimit").hide();
+      $("#button").attr("disabled", false);
+      $("#button").css({'cursor': 'pointer', 'color': 'white', 'background': '#4156A2'});
       
     }
   });
