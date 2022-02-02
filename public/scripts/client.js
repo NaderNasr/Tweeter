@@ -76,6 +76,17 @@ $(document).ready(function() {
     });
   });
 
+  const loadTweets = () => {
+    $.ajax({
+      type: 'GET',
+      url: url,
+      
+    }).done((result) => {
+      console.log(result);
+    }).fail((error) => {
+      console.log("ERROR: ", error.message);
+    });
+  };
 
   const renderTweet = (data) => {
     for (let user of data) {
@@ -87,5 +98,5 @@ $(document).ready(function() {
   const $tweet = renderTweet(data);
   // to add it to the page so we can make sure it's got all the right elements, classes, etc.
   $('#tweets-container').append($tweet);
-  
+  loadTweets();
 });
