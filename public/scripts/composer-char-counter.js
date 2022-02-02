@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 $(document).ready(function() {
+  $('form').find("textarea[type='text'],textarea").val(""); //empty text area on page refresh
   $("#charOverLimit").hide();
   $("#inputEmpty").hide();
   $("output").css({'color': 'black'});
