@@ -58,6 +58,10 @@ $(document).ready(function() {
     return tweet;
   };
 
+  $("#tweet-text").submit(function(event) {
+    alert("Handler for .submit() called.");
+    event.preventDefault();
+  });
 
   const renderTweet = (data) => {
     for (let user of data) {
