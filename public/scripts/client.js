@@ -25,9 +25,16 @@ $(document).ready(function() {
       "created_at": 1461113959088
     }
   ];
-
   
   const createTweetElement = (tweetData) => {
+    const escape = (str) => {
+      let div = document.createElement("div");
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    };
+    
+    const safeHTML = `${escape(tweetData.content.text)}`;
+  
     const createdAt = timeago.format(tweetData.created_at);
     const tweet = $(`
   <div class="tweet-box">
@@ -40,7 +47,7 @@ $(document).ready(function() {
     <p>${tweetData.user.handle}</p>
   </div>
 </div>
-<p class="text">${tweetData.content.text}</p>
+<p class="text">${safeHTML}</p>
 
 <hr class="tweet-divider"/>
 <div class="box">
