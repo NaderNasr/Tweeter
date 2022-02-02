@@ -32,9 +32,25 @@ nav p {
   padding-bottom: 12px;
 }
 
+@keyframes bounce {
+  0%   {margin-bottom: 0px;}
+  50%  {margin-bottom: 15px;}
+  100% {margin-bottom: 0px;}
+}
+
+.bounce{
+  animation-name: bounce;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+}
+
 .nav-right {
   display: flex;
   flex-direction: column;
   padding: 20px 0px;
   margin-right: 1.5em;
 }
+
+/* .fixed{
+  position:absolute;
+} */
