@@ -58,8 +58,10 @@ $(document).ready(function() {
   `);
     return tweet;
   };
+  
   const url = '/tweets';
 
+  //On submit form button post the data to /tweets/
   $("#tweet-text").submit(function(event) {
     event.preventDefault();
     const data = $(this).serialize();
@@ -76,24 +78,26 @@ $(document).ready(function() {
     });
   });
 
-  const loadTweets = () => {
-    $.ajax({
-      type: 'GET',
-      url: url,
-      
-    }).done((result) => {
-      console.log(result);
-    }).fail((error) => {
-      console.log("ERROR: ", error.message);
-    });
-  };
-
   const renderTweet = (data) => {
     for (let user of data) {
       const showTweet = createTweetElement(user);
       $('#tweets-container').prepend(showTweet);
     }
   };
+
+  // Load the tweets from the /tweets/ JSON file
+  const loadTweets = () => {
+    
+    $.ajax({
+      type: 'GET',
+      url: url,
+    }).done((result) => {
+      renderTweet(result);
+    }).fail((error) => {
+      console.log("ERROR: ", error.message);
+    });
+  };
+
 
   const $tweet = renderTweet(data);
   // to add it to the page so we can make sure it's got all the right elements, classes, etc.
