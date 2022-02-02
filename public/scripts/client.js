@@ -26,10 +26,9 @@ $(document).ready(function() {
     }
   ];
 
-  const createdAt = timeago.format(data.created_at);
-
+  
   const createTweetElement = (tweetData) => {
-    
+    const createdAt = timeago.format(tweetData.created_at);
     const tweet = $(`
   <div class="tweet-box">
   <div class="box">
@@ -73,8 +72,15 @@ $(document).ready(function() {
       
     }).done((result) => {
       console.log(result);
+      event.target.reset();
+      const textCounter = $(this).closest("section").find("output")[0];
+      const tweetTextCount = $(this).val().length;
+      textCounter.innerHTML = 140 - tweetTextCount;
+      //Load new tweet
+      loadTweets();
     }).fail((error) => {
-      console.log("ERROR: ", error.message);
+      $("#inputEmpty").show();
+      console.log('AJAX POST Error: ' + error);
     });
   });
 
@@ -93,14 +99,13 @@ $(document).ready(function() {
       url: url,
     }).done((result) => {
       renderTweet(result);
+      
     }).fail((error) => {
       console.log("ERROR: ", error.message);
     });
   };
 
-
-  const $tweet = renderTweet(data);
-  // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-  $('#tweets-container').append($tweet);
   loadTweets();
+  const $tweet = renderTweet(data);
+  $('#tweets-container').append($tweet);
 });
