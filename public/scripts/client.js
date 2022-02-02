@@ -42,6 +42,7 @@ $(document).ready(function() {
   </div>
 </div>
 <p class="text">${tweetData.content.text}</p>
+
 <hr class="tweet-divider"/>
 <div class="box">
   <div class="content-left">
@@ -57,11 +58,24 @@ $(document).ready(function() {
   `);
     return tweet;
   };
+  const url = '/tweets';
 
   $("#tweet-text").submit(function(event) {
-    alert("Handler for .submit() called.");
     event.preventDefault();
+    const data = $(this).serialize();
+    
+    $.ajax({
+      type: 'POST',
+      data: data,
+      url: url,
+      
+    }).done((result) => {
+      console.log(result);
+    }).fail((error) => {
+      console.log("ERROR: ", error.message);
+    });
   });
+
 
   const renderTweet = (data) => {
     for (let user of data) {
