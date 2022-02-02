@@ -16,18 +16,18 @@ $(document).ready(function() {
   <div class="tweet-box">
   <div class="box">
     <div class="content-left">
-    <img class="image" src=""/>
-    <p class="name">Newton</p>
+    <img class="image" src="${tweetData.user.avatars}"/>
+    <p class="name">${tweetData.user.name}</p>
   </div>
   <div class="content-right">
-    <p>@SirIsaac</p>
+    <p>${tweetData.user.handle}</p>
   </div>
 </div>
-<p class="text">If I have seen further it is by standing on the shoulders of giants </p>
+<p class="text">${tweetData.content.text}</p>
 <hr class="tweet-divider"/>
 <div class="box">
   <div class="content-left">
-    <p>10 days ago</p>
+    <p>${tweetData.created_at}</p>
   </div>
   <div class="content-right">
     <i class="fas fa-flag icon"></i>
@@ -41,9 +41,6 @@ $(document).ready(function() {
   };
 
   const $tweet = createTweetElement(tweetData);
-
-  // Test / driver code (temporary)
-  console.log($tweet); // to see what it looks like
-  $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-
+  // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+  $('#tweets-container').append($tweet);
 });
