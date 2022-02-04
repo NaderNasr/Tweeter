@@ -1,19 +1,26 @@
+
 header {
-  z-index: 1;
+  z-index: -1;
   height: 670px;
-  width: 100%;
+  width: 20%;
   padding-top: 10%;
-  background-image:#99fffd;background-image:  
-radial-gradient(at 34% 96%, hsla(287,97%,62%,1) 0, transparent 52%),  
-radial-gradient(at 20% 21%, hsla(34,60%,71%,1) 0, transparent 58%),  
-radial-gradient(at 65% 6%, hsla(271,89%,63%,1) 0, transparent 54%),  
-radial-gradient(at 81% 19%, hsla(178,62%,68%,1) 0, transparent 54%),  
-radial-gradient(at 17% 62%, hsla(66,70%,79%,1) 0, transparent 49%),  
-radial-gradient(at 67% 70%, hsla(195,66%,76%,1) 0, transparent 44%),  
-radial-gradient(at 86% 73%, hsla(354,68%,72%,1) 0, transparent 57%),  
-radial-gradient(at 35% 64%, hsla(130,82%,60%,1) 0, transparent 54%),  
-radial-gradient(at 50% 45%, hsla(74,95%,73%,1) 0, transparent 53%),  
-radial-gradient(at 15% 53%, hsla(66,67%,77%,1) 0, transparent 57%);
+  margin-top: 200px;
+  background: linear-gradient(-15deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 500% 500%;
+	animation: gradient 10s ease infinite;
+  margin-left: 1%;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .avatar {
@@ -26,3 +33,44 @@ radial-gradient(at 15% 53%, hsla(66,67%,77%,1) 0, transparent 57%);
   display: flex;
   justify-content: center;
 }
+
+
+@media only screen and (max-width: 1100px) {
+header {
+  z-index: -1;
+  height: 670px;
+  width: 100%;
+  padding-top: 20%;
+  background: linear-gradient(-15deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+  margin: 0px;
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  padding-top: 5%;
+}
+
+.avatar-name {
+  display: flex;
+  justify-content: center;
+}
+
+}
+
+
