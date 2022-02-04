@@ -48,29 +48,6 @@ header {
 
 }
 
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
-.avatar {
-  display: flex;
-  justify-content: center;
-  padding-top: 5%;
-}
-
-.avatar-name {
-  display: flex;
-  justify-content: center;
-}
-
 }
 
 
