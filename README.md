@@ -2,7 +2,7 @@
 
 - Tweeter is a simple, single-page Twitter clone.
 
-  # Technologies applied 🎒
+# Technologies applied 🎒
 
   - Front End:
 
@@ -32,11 +32,10 @@
     Express
     Md5
 
-    
-    
 ## Preview
 
 https://user-images.githubusercontent.com/35424606/152457033-0f2ef1c4-fe51-435a-8901-a87f281c1852.mov
+
 
 
 
