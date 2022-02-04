@@ -78,7 +78,7 @@ $(document).ready(function() {
       url: url,
       
     }).done((result) => {
-      console.log(result);
+      console.log("Result: " + result);
       event.target.reset();
       const textCounter = $(this).closest("section").find("output")[0];
       const tweetTextCount = $(this).val().length;
@@ -87,7 +87,7 @@ $(document).ready(function() {
       loadTweets();
     }).fail((error) => {
       $("#inputEmpty").show();
-      console.log('AJAX POST Error: ' + error);
+      console.log('Error: ' + error);
     });
   });
 
