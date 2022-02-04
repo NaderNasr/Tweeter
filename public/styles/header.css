@@ -5,7 +5,7 @@ header {
   width: 20%;
   padding-top: 10%;
   margin-top: 200px;
-  background: linear-gradient(-15deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 500% 500%;
 	animation: gradient 10s ease infinite;
   margin-left: 1%;
@@ -41,7 +41,7 @@ header {
   height: 670px;
   width: 100%;
   padding-top: 20%;
-  background: linear-gradient(-15deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 10s ease infinite;
   margin: 0px;
