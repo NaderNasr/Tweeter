@@ -14,13 +14,23 @@ $(document).ready(function() {
     }
   ];
 
-  const createTweetElement = (tweetData) => {
-    const escape = (str) => {
-      let div = document.createElement("div");
-      div.appendChild(document.createTextNode(str));
-      return div.innerHTML;
-    };
+  const escape = (str) => {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
+  const renderTweet = (data) => {
+    //Does not post duplicates
+    $('#tweets-container').html(" ");
+
+    for (let user of data) {
+      const showTweet = createTweetElement(user);
+      $('#tweets-container').prepend(showTweet);
+    }
+  };
+
+  const createTweetElement = (tweetData) => {
     const safeHTML = `${escape(tweetData.content.text)}`;
     const createdAt = timeago.format(tweetData.created_at);
     const tweet = $(`
@@ -51,51 +61,41 @@ $(document).ready(function() {
     return tweet;
   };
 
-  const url = '/tweets';
-  //On submit form button post the data to /tweets/
-  $("#tweet-text").submit(function (event) {
-    event.preventDefault();
-    const data = $(this).serialize();
-    $.ajax({
-      type: 'POST',
-      data: data,
-      url: url,
-    }).done((result) => {
-      console.log("Result: " + result);
-      event.target.reset();
-      const textCounter = $(this).closest("section").find("output")[0];
-      const tweetTextCount = $(this).val().length;
-      textCounter.innerHTML = 140 - tweetTextCount;
-      //Load new tweet
-      loadTweets();
-    }).fail((error) => {
-      $("#inputEmpty").show();
-      console.log('Error: ' + error);
-    });
-  });
-
-  const renderTweet = (data) => {
-    for (let user of data) {
-      const showTweet = createTweetElement(user);
-      $('#tweets-container').prepend(showTweet);
-    }
-  };
+  const $tweet = renderTweet(data);
+  $('#tweets-container').append($tweet);
 
   // Load the tweets from the /tweets/ JSON file
   const loadTweets = () => {
     $.ajax({
       type: 'GET',
-      url: url,
+      url: '/tweets',
     }).done((result) => {
-      //Does not post duplicates
-      const currentPost = [result.pop()];
-      renderTweet(currentPost);
+      renderTweet(result);
     }).fail((error) => {
       console.log("ERROR: ", error.message);
     });
   };
 
+  //On submit form button post the data to /tweets/
+  $("#tweet-text").submit(function(event) {
+    event.preventDefault();
+    const data = $(this).serialize();
+    $.ajax({type: 'POST', data: data, url: '/tweets' })
+      .done(() => {
+        event.target.reset();
+        const textCounter = $(this).closest("section").find("output")[0];
+        const tweetTextCount = $(this).val().length;
+        textCounter.innerHTML = 140 - tweetTextCount;
+        //Load new tweet
+        loadTweets();
+      }).fail(() => {
+        $("#inputEmpty").show();
+        console.log('There are no tweets');
+      });
+  });
+
+  
+
   loadTweets();
-  const $tweet = renderTweet(data);
-  $('#tweets-container').append($tweet);
+  
 });
