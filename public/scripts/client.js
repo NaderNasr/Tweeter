@@ -105,7 +105,9 @@ $(document).ready(function() {
       type: 'GET',
       url: url,
     }).done((result) => {
-      renderTweet(result);
+      //Does not post duplicates
+      const currentPost = [result.pop()];
+      renderTweet(currentPost);
       
     }).fail((error) => {
       console.log("ERROR: ", error.message);
