@@ -1,40 +1,27 @@
 /* eslint-disable no-undef */
 $(document).ready(function() {
-
   const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
     {
       "user": {
         "name": "Descartes",
         "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
+        "handle": "@rd"
+      },
       "content": {
         "text": "Je pense , donc je suis"
       },
-      "created_at": 1461113959088
+      "created_at": 1644211103058
     }
   ];
-  
+
   const createTweetElement = (tweetData) => {
     const escape = (str) => {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
       return div.innerHTML;
     };
-    
+
     const safeHTML = `${escape(tweetData.content.text)}`;
-  
     const createdAt = timeago.format(tweetData.created_at);
     const tweet = $(`
   <div class="tweet-box">
@@ -48,7 +35,6 @@ $(document).ready(function() {
   </div>
 </div>
 <p class="text">${safeHTML}</p>
-
 <hr class="tweet-divider"/>
 <div class="box">
   <div class="content-left">
@@ -64,19 +50,16 @@ $(document).ready(function() {
   `);
     return tweet;
   };
-  
-  const url = '/tweets';
 
+  const url = '/tweets';
   //On submit form button post the data to /tweets/
-  $("#tweet-text").submit(function(event) {
+  $("#tweet-text").submit(function (event) {
     event.preventDefault();
     const data = $(this).serialize();
-    
     $.ajax({
       type: 'POST',
       data: data,
       url: url,
-      
     }).done((result) => {
       console.log("Result: " + result);
       event.target.reset();
@@ -100,7 +83,6 @@ $(document).ready(function() {
 
   // Load the tweets from the /tweets/ JSON file
   const loadTweets = () => {
-    
     $.ajax({
       type: 'GET',
       url: url,
@@ -108,7 +90,6 @@ $(document).ready(function() {
       //Does not post duplicates
       const currentPost = [result.pop()];
       renderTweet(currentPost);
-      
     }).fail((error) => {
       console.log("ERROR: ", error.message);
     });
